@@ -23,27 +23,17 @@
 
 from flask import Flask
 from flask_restx import Api, Resource
+from views.books import book_ns
 
 app = Flask(__name__)
 app.url_map.strict_slashes = False
 
+
 api = Api(app)
-book_ns = api.namespace('books')
+api.add_namespace(book_ns)
 
 
-@book_ns.route('/')
-class BooksView(Resource):
-    def get(self):
-        return [], 200
 
-    def post(self):
-        return "", 201
-
-
-@book_ns.route('/<int:bid>')
-class BookView(Resource):
-    def get(self, bid):
-        return bid, 200
 
 
 # Вы можете протестировать свое приложение самостоятельно.
