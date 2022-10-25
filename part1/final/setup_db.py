@@ -3,5 +3,5 @@
 # в которой вы инициализируете БД. Это необходимо для корректной
 # работы тестов
 
-# import ...
-# db = ..                   
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
